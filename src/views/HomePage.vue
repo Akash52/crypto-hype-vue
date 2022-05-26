@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="row mt-5 p-5 align-items-center">
+    <div class="row mt-5 p-5 wrapper-row align-items-center">
       <div class="col-6">
         <h2 class="text-center mb-5">
           Keep up with the crypto hype by searching for your favorite coins!
@@ -14,6 +14,7 @@
               name="searchTerm"
               v-model="searchTerm"
             />
+            <i class="fas fa-search search-icon position-absolute"></i>
           </div>
         </form>
       </div>
@@ -50,4 +51,6 @@ export default {
 //   },
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+@import './HomePage.scss';
+</style>
