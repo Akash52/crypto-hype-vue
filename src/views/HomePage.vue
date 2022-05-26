@@ -32,17 +32,22 @@ export default {
       searchTerm: '',
     };
   },
-  //   methods: {
-  //     onSubmit() {
-  //       this.$router.push({
-  //         name: 'Search',
-  //         params: {
-  //           searchTerm: this.searchTerm,
-  //         },
-  //       });
-  //     },
-  //   },
+  methods: {
+    onSubmit() {
+      console.log('Searching for: ', this.searchTerm);
+    },
+  },
 };
+//   methods: {
+//     onSubmit() {
+//       this.$router.push({
+//         name: 'Search',
+//         params: {
+//           searchTerm: this.searchTerm,
+//         },
+//       });
+//     },
+//   },
 </script>
 
 <style></style>
