@@ -5,18 +5,36 @@
         <h2 class="text-center mb-5">
           Keep up with the crypto hype by searching for your favorite coins!
         </h2>
-        <form @submit.prevent="onSubmit" novalidate>
-          <div class="form-group postion-relative">
-            <input
-              type="text"
-              class="form-control rounded-pill shadow-lg"
-              placeholder="Search for a coin"
-              name="searchTerm"
-              v-model="searchTerm"
-            />
-            <i class="fas fa-search search-icon position-absolute"></i>
-          </div>
-        </form>
+        <ValidationObserver v-slot="{ handleSubmit }">
+          <form @submit.prevent="handleSubmit(onSubmit)" novalidate>
+            <div class="form-group postion-relative">
+              <ValidationProvider
+                name="searchTerm"
+                :rules="{ required: true, alpha_num: true }"
+                v-slot="{ errors }"
+              >
+                <div class="search-bar">
+                  <input
+                    type="text"
+                    class="form-control rounded-pill shadow-lg"
+                    :class="errors[0] ? 'border-danger' : 'border-0'"
+                    placeholder="Search for a coin"
+                    name="searchTerm"
+                    v-model="searchTerm"
+                  />
+                  <i
+                    class="fas fa-search search-icon postion-absolute"
+                    @click="handleSubmit(onSubmit)"
+                  >
+                  </i>
+                </div>
+                <span class="error-span mt-2 text-danger">
+                  {{ errors[0] }}
+                </span>
+              </ValidationProvider>
+            </div>
+          </form>
+        </ValidationObserver>
       </div>
       <div class="col-6">
         <img src="../assets/img/landing-right-bg.png" class="img-fluid" />
@@ -76,8 +94,16 @@
 </template>
 
 <script>
+import { ValidationObserver, ValidationProvider } from 'vee-validate';
+import '../forms/alpha_num_req';
+import '../forms/req';
+
 export default {
   name: 'HomePage',
+  components: {
+    ValidationObserver,
+    ValidationProvider,
+  },
   data() {
     return {
       searchTerm: '',
