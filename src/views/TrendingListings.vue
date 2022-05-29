@@ -1,10 +1,9 @@
 <template>
-  <div>Trending Listings {{ crypto }}</div>
+  <div>Trending Listings {{ cryptoData }}</div>
 </template>
 
 <script>
-import ApiService from '@/services/ApiService.js'
-
+import { mapActions, mapGetters } from 'vuex'
 export default {
   name: 'TrendingListings',
   data() {
@@ -13,10 +12,19 @@ export default {
       loading: true,
     }
   },
-  async created() {
-    const { data } = await ApiService.getCrypto()
-    this.crypto = data.data
-    this.loading = false
+  methods: {
+    ...mapActions(['fetchCryptoData']),
+  },
+  computed: {
+    ...mapGetters(['cryptoData']),
+  },
+  beforeMount() {
+    if (this.cryptoData?.length === 0) {
+      this.fetchCryptoData()
+    } else {
+      this.crypto = this.cryptoData
+      this.loading = false
+    }
   },
 }
 </script>

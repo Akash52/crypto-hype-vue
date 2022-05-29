@@ -1,15 +1,27 @@
-const state = {};
+import ApiService from '../../services/ApiService'
 
-const getters = {};
+const state = {
+  crypto: [],
+}
 
-const actions = {};
+const getters = {
+  cryptoData: (state) => state.crypto,
+}
 
-const mutations = {};
+const actions = {
+  async fetchCryptoData({ commit }) {
+    const response = await ApiService.getCrypto()
+    commit('setCrypto', response.data)
+  },
+}
+
+const mutations = {
+  setCrypto: (state, crypto) => (state.crypto = crypto),
+}
 
 export default {
-  namespaced: true,
   state,
   getters,
   actions,
   mutations,
-};
+}
