@@ -10,11 +10,16 @@ const apiClient = axios.create({
 })
 
 export default {
+<<<<<<< HEAD
   //make a request to the api & also handle errors
 
   getCrypto: async () => {
     return await apiClient.get('/assets').catch((error) => {
       console.error(error)
     })
+=======
+  getCrypto: async () => {
+    return await apiClient.get('/assets')
+>>>>>>> a458bc6e89bbc7c32c284fd9b5478d5ad453176d
   },
 }
