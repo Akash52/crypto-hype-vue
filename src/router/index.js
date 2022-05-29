@@ -1,7 +1,7 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
+import Vue from 'vue'
+import VueRouter from 'vue-router'
 
-Vue.use(VueRouter);
+Vue.use(VueRouter)
 
 const routes = [
   {
@@ -9,12 +9,17 @@ const routes = [
     name: 'Home',
     component: () => import('../views/HomePage.vue'),
   },
-];
+  {
+    path: '/trendings',
+    name: 'Trendings',
+    component: () => import('../views/TrendingListings.vue'),
+  },
+]
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
   routes,
-});
+})
 
-export default router;
+export default router

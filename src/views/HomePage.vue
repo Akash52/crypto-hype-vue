@@ -94,9 +94,9 @@
 </template>
 
 <script>
-import { ValidationObserver, ValidationProvider } from 'vee-validate';
-import '../forms/alpha_num_req';
-import '../forms/req';
+import { ValidationObserver, ValidationProvider } from 'vee-validate'
+import '../forms/alpha_num_req'
+import '../forms/req'
 
 export default {
   name: 'HomePage',
@@ -107,14 +107,14 @@ export default {
   data() {
     return {
       searchTerm: '',
-    };
+    }
   },
   methods: {
     onSubmit() {
-      console.log('Searching for: ', this.searchTerm);
+      console.log('Searching for: ', this.searchTerm)
     },
   },
-};
+}
 //   methods: {
 //     onSubmit() {
 //       this.$router.push({
