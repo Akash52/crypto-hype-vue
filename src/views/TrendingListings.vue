@@ -1,5 +1,8 @@
 <template>
-  <div>Trending Listings {{ cryptoData }}</div>
+  <div>
+    <div v-if="cryptoLoading">Crypto Loading</div>
+    <div v-else>Crypto : {{ cryptoData }}</div>
+  </div>
 </template>
 
 <script>
@@ -16,7 +19,7 @@ export default {
     ...mapActions(['fetchCryptoData']),
   },
   computed: {
-    ...mapGetters(['cryptoData']),
+    ...mapGetters(['cryptoData', 'cryptoLoading']),
   },
   beforeMount() {
     if (this.cryptoData?.length === 0) {
