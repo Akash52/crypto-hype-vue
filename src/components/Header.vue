@@ -1,19 +1,34 @@
 <template>
   <nav class="navbar navbar-dark bg-dark navbar-expand-sm">
     <div class="container">
-      <a class="navbar-brand" href="#"> Crypto Hype Vue </a>
+      <router-link class="navbar-brand" to="/" exact-active-class="active">
+        Crypto Hype Vue
+      </router-link>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">
+            <router-link
+              class="nav-link"
+              aria-current="page"
+              to="/trendings"
+              exact-active-class="active"
+            >
               Trending Listings
-            </a>
+            </router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"> Exchnages </a>
+            <router-link class="nav-link" to="/exchnages">
+              Exchnages
+            </router-link>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#"> Portfolio </a>
+            <router-link
+              class="nav-link"
+              to="/portfolio"
+              exact-active-class="active"
+            >
+              Portfolio
+            </router-link>
           </li>
         </ul>
       </div>
@@ -24,7 +39,7 @@
 <script>
 export default {
   name: 'Header',
-};
+}
 </script>
 
 <style></style>
