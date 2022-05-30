@@ -1,19 +1,25 @@
 <template>
   <div>
-    <div v-if="cryptoLoading">Crypto Loading</div>
-    <div v-else>Crypto : {{ cryptoData }}</div>
+    <!-- <div v-if="cryptoLoading">Crypto Loading</div>
+    <div v-else>Crypto : {{ cryptoData }}</div> -->
+    <CryptoListVue :cryptoData="cryptoData" />
   </div>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions, mapGetters } from 'vuex';
+import CryptoListVue from '../components/CryptoList.vue';
+
 export default {
   name: 'TrendingListings',
+  components: {
+    CryptoListVue,
+  },
   data() {
     return {
       crypto: [],
       loading: true,
-    }
+    };
   },
   methods: {
     ...mapActions(['fetchCryptoData']),
@@ -23,13 +29,13 @@ export default {
   },
   beforeMount() {
     if (this.cryptoData?.length === 0) {
-      this.fetchCryptoData()
+      this.fetchCryptoData();
     } else {
-      this.crypto = this.cryptoData
-      this.loading = false
+      this.crypto = this.cryptoData;
+      this.loading = false;
     }
   },
-}
+};
 </script>
 
 <style></style>
