@@ -17,7 +17,7 @@
             </router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/exchnages">
+            <router-link class="nav-link" to="/exchanges">
               Exchnages
             </router-link>
           </li>
@@ -39,7 +39,7 @@
 <script>
 export default {
   name: 'Header',
-}
+};
 </script>
 
 <style></style>
