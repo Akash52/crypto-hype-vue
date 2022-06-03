@@ -9,11 +9,9 @@
           >
             <thead class="table-primary">
               <tr>
-                <th>Name</th>
-                <th>Price</th>
-                <th>Market Cap</th>
-                <th>Volume (24Hr)</th>
-                <th>Change (24Hr)</th>
+                <th v-for="(title, i) in tableTitle" :key="i" scope="col">
+                  {{ title }}
+                </th>
               </tr>
             </thead>
             <tbody
@@ -22,22 +20,8 @@
               :key="crypto.id"
             >
               <tr>
-                <td>
-                  <small class="text-muted">{{ crypto.name }}</small>
-                </td>
-                <td>
-                  <small class="text-muted">{{ crypto.priceUsd }}</small>
-                </td>
-                <td>
-                  <small class="text-muted">{{ crypto.marketCapUsd }}</small>
-                </td>
-                <td>
-                  <small class="text-muted">{{ crypto.volumeUsd24Hr }}</small>
-                </td>
-                <td>
-                  <small class="text-muted">{{
-                    crypto.changePercent24Hr
-                  }}</small>
+                <td v-for="(data, i) in tableData" :key="i">
+                  <small>{{ crypto[data] }}</small>
                 </td>
               </tr>
             </tbody>
@@ -56,12 +40,7 @@ import { mapGetters } from 'vuex';
 
 export default {
   name: 'CryptoList',
-  props: {
-    cryptoData: {
-      type: Array,
-      required: true,
-    },
-  },
+  props: ['cryptoData', 'tableData', 'tableTitle'],
   computed: {
     ...mapGetters(['cryptoLoading']),
   },
