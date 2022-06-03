@@ -8,7 +8,7 @@ module.exports = {
   ],
   CRYPTO_TABLE_DATA: {
     Name: 'name',
-    Price: 'price',
+    Price: 'priceUsd',
     MarketCap: 'marketCapUsd',
     Volume: 'volumeUsd24Hr',
     Change: 'changePercent24Hr',
@@ -23,7 +23,7 @@ module.exports = {
   ],
   EXCHANGE_TABLE_DATA: {
     Name: 'name',
-    Price: 'price',
+    Price: 'tradingPairs',
     MarketCap: 'percentTotalVolume',
     Volume: 'volumeUsd',
     Change: 'updated',
