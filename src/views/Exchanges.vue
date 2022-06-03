@@ -9,7 +9,7 @@
 <script>
 import { mapActions, mapGetters } from 'vuex';
 import CryptoListVue from '../components/CryptoList.vue';
-import { CRYPTO_TABLE_DATA, CRYPTO_TABLE_TITLE } from '../constant';
+import { EXCHANGE_TABLE_DATA, EXCHANGE_TABLE_TITLE } from '../constant';
 
 export default {
   name: 'Exchanges',
@@ -18,8 +18,8 @@ export default {
   },
   data() {
     return {
-      tableData: CRYPTO_TABLE_DATA,
-      tableTitle: CRYPTO_TABLE_TITLE,
+      tableData: EXCHANGE_TABLE_DATA,
+      tableTitle: EXCHANGE_TABLE_TITLE,
     };
   },
   methods: {

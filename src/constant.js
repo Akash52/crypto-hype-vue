@@ -13,4 +13,19 @@ module.exports = {
     Volume: 'volumeUsd24Hr',
     Change: 'changePercent24Hr',
   },
+
+  EXCHANGE_TABLE_TITLE: [
+    'Name',
+    'Price',
+    'Market Cap',
+    'Volume (24h)',
+    'Change (24h)',
+  ],
+  EXCHANGE_TABLE_DATA: {
+    Name: 'name',
+    Price: 'price',
+    MarketCap: 'percentTotalVolume',
+    Volume: 'volumeUsd',
+    Change: 'updated',
+  },
 };
